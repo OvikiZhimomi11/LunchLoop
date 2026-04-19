@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lunchloop - Campus Food Ordering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- Login Screen -->
+        <section id="screen-login" class="screen screen-login active">
+            <div class="logo-container">
+                <img src="logo.png" alt="Lunchloop Logo">
+                <h1>Lunchloop</h1>
+                <p>Campus Dining, Simplified.</p>
+            </div>
+            
+            <div class="input-group">
+                <label>Student Email</label>
+                <input type="email" placeholder="student@campus.edu" id="login-email">
+            </div>
+            
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" id="login-password">
+            </div>
+            
+            <button class="btn btn-primary" onclick="navigateTo('home')">Login to Dashboard</button>
+            <p style="margin-top: 24px; font-size: 13px;">Forgot Password? <span style="color: var(--primary); font-weight: 600;">Reset here</span></p>
+        </section>
+
+        <!-- Home Screen -->
+        <section id="screen-home" class="screen">
+            <div class="header">
+                <p>Welcome back,</p>
+                <h1>Aryan Sharma</h1>
+            </div>
+
+            <div class="wallet-card">
+                <div class="wallet-label">Prepaid Balance</div>
+                <div class="wallet-balance">₹ <span id="wallet-balance">540.00</span></div>
+                <div class="card-id">CARD ID: LL-9928-8831</div>
+                <button class="recharge-btn" onclick="alert('Recharge module coming soon!')">Recharge</button>
+            </div>
+
+            <div class="section-title">
+                <h2>Today's Special</h2>
+            </div>
+
+            <div class="card meal-card-today">
+                <div class="meal-img-wrapper">
+                    <img src="meal_bowl.png" alt="Today's Meal">
+                </div>
+                <div class="meal-info">
+                    <h3>Mediterranean Quinoa Bowl</h3>
+                    <div class="meal-price">₹120.00</div>
+                    <button class="btn btn-primary btn-small" onclick="navigateTo('meal-selection')">Order Now</button>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <div class="card action-card" onclick="navigateTo('order-history')">
+                    <div class="action-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>My Orders</h3>
+                    <p>Track delivery</p>
+                </div>
+                <div class="card action-card" onclick="navigateTo('meal-selection')">
+                    <div class="action-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                    </div>
+                    <h3>Weekly Menu</h3>
+                    <p>Plan ahead</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Selection Screen -->
+        <section id="screen-meal-selection" class="screen">
+            <div class="section-title">
+                <h1>Today's Menu</h1>
+                <div class="icon" onclick="navigateTo('home')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+            </div>
+
+            <div class="meal-list">
+                <div class="card meal-list-item">
+                    <div class="meal-img-wrapper" style="width: 80px; height: 80px;">
+                        <img src="meal_bowl.png" alt="Meal">
+                    </div>
+                    <div class="meal-info">
+                        <h3>Quinoa Bowl</h3>
+                        <p>Healthy, fresh ingredients</p>
+                        <div class="meal-price" style="font-size: 16px;">₹120.00</div>
+                    </div>
+                    <button class="btn btn-primary btn-small" onclick="confirmOrder('Quinoa Bowl', 120)">Select</button>
+                </div>
+
+                <div class="card meal-list-item">
+                    <div class="meal-img-wrapper" style="width: 80px; height: 80px;">
+                        <img src="meal_sandwich.png" alt="Meal">
+                    </div>
+                    <div class="meal-info">
+                        <h3>Club Sandwich</h3>
+                        <p>Toasted with herb mayo</p>
+                        <div class="meal-price" style="font-size: 16px;">₹85.00</div>
+                    </div>
+                    <button class="btn btn-primary btn-small" onclick="confirmOrder('Club Sandwich', 85)">Select</button>
+                </div>
+
+                <div class="card meal-list-item">
+                    <div class="meal-img-wrapper" style="width: 80px; height: 80px; background: #FFF9C4;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 32px;">🍊</div>
+                    </div>
+                    <div class="meal-info">
+                        <h3>Fresh Orange Juice</h3>
+                        <p>100% cold pressed</p>
+                        <div class="meal-price" style="font-size: 16px;">₹45.00</div>
+                    </div>
+                    <button class="btn btn-primary btn-small" onclick="confirmOrder('Orange Juice', 45)">Select</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Confirmation Screen -->
+        <section id="screen-confirmation" class="screen success-screen">
+            <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p>Your meal will be ready in 15 mins.</p>
+
+            <div class="card order-details-card">
+                <h3>Order Details</h3>
+                <div class="detail-row">
+                    <span>Meal</span>
+                    <strong id="conf-meal-name">Quinoa Bowl</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Order ID</span>
+                    <strong id="conf-order-id">#ORD-4492</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Total Paid</span>
+                    <strong id="conf-price">₹120.00</strong>
+                </div>
+                <div class="detail-row" style="border-top: 1px dashed #ddd; margin-top: 10px; padding-top: 15px;">
+                    <span>Remaining Balance</span>
+                    <strong style="color: var(--success);" id="conf-balance">₹420.00</strong>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="margin-top: 40px;" onclick="navigateTo('home')">Back to Home</button>
+        </section>
+
+        <!-- Order History Screen -->
+        <section id="screen-order-history" class="screen">
+            <div class="section-title">
+                <h1>Order History</h1>
+                <div class="icon" onclick="navigateTo('home')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </div>
+            </div>
+
+            <div class="history-list">
+                <div class="card history-item">
+                    <div>
+                        <h3>Club Sandwich</h3>
+                        <p>18 April, 01:20 PM</p>
+                    </div>
+                    <div class="status-badge status-completed">Completed</div>
+                </div>
+                <div class="card history-item">
+                    <div>
+                        <h3>Quinoa Bowl</h3>
+                        <p>17 April, 12:45 PM</p>
+                    </div>
+                    <div class="status-badge status-completed">Completed</div>
+                </div>
+                <div class="card history-item">
+                    <div>
+                        <h3>Orange Juice</h3>
+                        <p>17 April, 10:15 AM</p>
+                    </div>
+                    <div class="status-badge status-completed">Completed</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation (Hidden on Login/Confirmation) -->
+        <nav class="bottom-nav" id="main-nav" style="display: none;">
+            <a href="javascript:void(0)" class="nav-item active" onclick="navigateTo('home')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" onclick="navigateTo('order-history')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Orders</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" onclick="alert('Profile settings coming soon!')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
