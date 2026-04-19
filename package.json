@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
+    "mobile": "npm start --prefix mobile",
+    "android": "npm run android --prefix mobile",
+    "ios": "npm run ios --prefix mobile",
+    "web": "npm run web --prefix mobile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
