@@ -1,0 +1,19 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "SUPABASE_URL",
+      "description": "Supabase project URL — find it in your Supabase project settings under API. Already present in the repo's .env file.",
+      "requiredAtBoot": true,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "SUPABASE_KEY",
+      "description": "Supabase anon/public API key — find it in your Supabase project settings under API. Already present in the repo's .env file.",
+      "requiredAtBoot": true,
+      "generatedForDevelopment": false
+    }
+  ]
+}
